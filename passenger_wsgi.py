@@ -1,3 +1,4 @@
+from a2wsgi import ASGIMiddleware
 import os
 
 import django
@@ -8,4 +9,5 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project.settings')
 
 django.setup()
 
-application = get_default_application()
+#application = get_default_application()
+application = ASGIMiddleware(get_default_application())
